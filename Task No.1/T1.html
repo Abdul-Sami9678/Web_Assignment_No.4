@@ -1,1 +1,128 @@
 .
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation with jQuery</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .form-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="tel"], input[type="url"], input[type="date"] {
+    margin: 10px 0;
+    padding: 10px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // SignIn Validation
+    $("#signInForm").submit(function(event) {
+      let username = $("#username").val();
+      let password = $("#password").val();
+      if (username === "" || password === "") {
+        alert("Username and password cannot be empty.");
+        event.preventDefault();
+      }
+    });
+
+    // SignUp Validation
+    $("#signUpForm").submit(function(event) {
+      let isValid = true;
+
+      // Validate each input field in the SignUp form
+      $("#signUpForm input").each(function() {
+        let element = $(this);
+        if (element.val().trim() === "") {
+          alert(element.attr("name") + " cannot be empty");
+          isValid = false;
+          event.preventDefault();
+          return false;
+        }
+      });
+
+      // Password Validation
+      let password = $("#newPassword").val();
+      if (!password.match(/^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/)) {
+        alert("Password must contain at least eight characters, one letter, one number, and one special character.");
+        isValid = false;
+        event.preventDefault();
+      }
+
+      // Email Validation
+      let email = $("#email").val();
+      if (!email.match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/)) {
+        alert("Enter a valid email address.");
+        isValid = false;
+        event.preventDefault();
+      }
+
+      // Age Validation
+      let age = parseInt($("#age").val(), 10);
+      if (isNaN(age) || age < 18 || age > 100) {
+        alert("Enter a valid age between 18 and 100.");
+        isValid = false;
+        event.preventDefault();
+      }
+
+      return isValid;
+    });
+  });
+</script>
+</head>
+<body>
+<!-- SignIn Form -->
+<div class="form-container">
+  <form id="signInForm">
+    <h2>Sign In</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <button type="submit">Sign In</button>
+  </form>
+</div>
+
+<!-- SignUp Form -->
+<div class="form-container">
+  <form id="signUpForm">
+    <h2>Sign Up</h2>
+    <label for="newUsername">Username:</label>
+    <input type="text" id="newUsername" name="username">
+    <label for="newPassword">Password:</label>
+    <input type="password" id="newPassword" name="password">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age">
+    <label for="phone">Phone:</label>
+    <input type="number" id="phone" name="phone">
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website">
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday">
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+</body>
+</html>
