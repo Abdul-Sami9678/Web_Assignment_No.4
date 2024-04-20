@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Portfolio</title>
+<style>
+  /* CSS for Background Image with 3D Effect */
+  .background {
+    background-image: url('1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .background .content {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CSS for Animated Portfolio Details */
+  .portfolio-details {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    margin-top: 40px;
+  }
+  
+  .portfolio-details.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* CSS for Animated Icons */
+  .animated-icon {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: #333;
+  }
+  
+  /* Hover effect for icons */
+  .animated-icon:hover {
+    transform: scale(1.2); /* Increase size on hover */
+    color: #007bff;
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  /* CSS for Navbar */
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #007bff;
+  }
+</style>
+</head>
+<body>
+<div class="background">
+  <div class="content">
+    <h1>Abdul Sami</h1>
+    <p>Computer Scientist</p>
+    <div class="icons">
+        <span class="animated-icon" onclick="showDetails('about')" style="display: inline-block; width: 32px; height: 32px;">
+            <img src="5.png" alt="Email" style="width: 100%; height: 100%;">
+          </span>
+      <span class="animated-icon" onclick="showDetails('education')" style="display: inline-block; width: 32px; height: 32px;">
+        <img src="4.png" alt="Email" style="width: 100%; height: 100%;">
+      </span>
+      <span class="animated-icon" onclick="showDetails('projects')" style="display: inline-block; width: 32px; height: 32px;">
+        <img src="6.png" alt="Email" style="width: 100%; height: 100%;">
+      </span>
+      <span class="animated-icon" onclick="showDetails('contact')" style="display: inline-block; width: 32px; height: 32px;">
+        <img src="3.png" alt="Email" style="width: 100%; height: 100%;">
+      </span>
+      
 
+      <a href="https://github.com" target="_blank" class="animated-icon"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="32" height="32"></a>
+      <a href="https://linkedin.com" target="_blank" class="animated-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="LinkedIn" width="32" height="32"></a>
+      <a href="mailto:example@example.com" class="animated-icon"><img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email" width="32" height="32"></a>
+    </div>
+    <div class="portfolio-details" id="about"> <!-- Animated Portfolio Details -->
+      <h2>About Me</h2>
+      <p>As a dedicated computer scientist currently enrolled at FAST University, I am deeply passionate about exploring the vast realm of technology. With a keen interest in mobile application development, I am currently focused on learning Flutter, Google's versatile UI toolkit, to craft innovative and user-friendly cross-platform applications. My journey in the world of technology has been one of continuous exploration, fueled by a relentless curiosity to understand and harness the power of emerging technologies. Alongside my academic pursuits, I actively engage in various tech communities, seeking to collaborate, share knowledge, and contribute to the ever-evolving landscape of digital innovation.
+
+
+
+
+
+
+      </p>
+    </div>
+    <div class="portfolio-details" id="education">
+      <h2>Education</h2>
+      <p><ul style="list-style-type: none;">
+        <li>
+          <strong>Schooling:</strong>
+          <ul style="list-style-type: none;">
+            <li>DPS School</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Intermediate (FSC):</strong>
+          <ul style="list-style-type: none;">
+            <li>SAKIMS Multan</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Current Education:</strong>
+          <ul style="list-style-type: none;">
+            <li>FAST-National University of Computer and Emerging Sciences (NUCES)</li>
+          </ul>
+        </li>
+      </ul></p>
+    </div>
+    <div class="portfolio-details" id="projects">
+      <h2>Projects</h2>
+    
+      <ul>
+        <li><a href="#">Project 1: Website Redesign</a></li>
+        <li><a href="#">Project 2: Mobile App Development</a></li>
+        <li><a href="#">Project 3: E-commerce Platform</a></li>
+        <li><a href="#">Project 4: Data Visualization Dashboard</a></li>
+        <li><a href="#">Project 5: Social Media Analytics Tool</a></li>
+        <li><a href="#">Project 6: IoT Home Automation System</a></li>
+        <li><a href="#">Project 7: Chatbot Integration</a></li>
+        <li><a href="#">Project 8: Augmented Reality Experience</a></li>
+        <li><a href="#">Project 9: Machine Learning Model Deployment</a></li>
+        <li><a href="#">Project 10: Blockchain Application</a></li>
+      </ul>
+      </p>
+    </div>
+    <div class="portfolio-details" id="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out to me at +123-456-7890 for any inquiries or collaborations. You can also explore more about my work on my websites: www.example1.com and www.example2.com. I look forward to connecting with you!</p>
+    </div>
+  </div>
+</div>
+<script>
+  // Function to show/hide portfolio details
+  function showDetails(sectionId) {
+    var details = document.querySelectorAll('.portfolio-details');
+    details.forEach(function(item) {
+      if (item.id === sectionId) {
+        item.style.display = 'block';
+        setTimeout(function() {
+          item.classList.add('animated');
+        }, 50);
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('animated');
+      }
+    });
+  }
+</script>
+</body>
+</html>
